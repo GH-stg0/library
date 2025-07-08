@@ -17,14 +17,14 @@ vector<int> TopologicalSort(vector<vector<int>> &graph) {
         for (const int nex : graph[pos]) indegree[nex]++;
     }
 
-    priority_queue<int, vector<int>, greater<int>> pq;
+    queue<int> pq;
     for (int i = 0; i < N; i++) {
       if (indegree[i] == 0) pq.push(i);
     }
 
     vector<int> ret;
     while (!pq.empty()) {
-        int pos = pq.top();
+        int pos = pq.front();
         pq.pop();
         ret.emplace_back(pos);
         for (const int &nex : graph[pos]) {
