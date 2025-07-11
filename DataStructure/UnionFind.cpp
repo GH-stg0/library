@@ -3,8 +3,10 @@ using namespace std;
 using ll = long long;
 
 class UnionFind {
-public:
+    private:
     vector<int> parent, siz;
+
+    public:
     UnionFind(size_t n) {
         parent.resize(n);
         siz.resize(n, 1);
